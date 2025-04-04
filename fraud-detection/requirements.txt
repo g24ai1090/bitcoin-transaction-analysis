@@ -1,0 +1,4 @@
+google-cloud-functions==1.13.0
+tensorflow==2.15.0
+pandas==2.2.1
+scikit-learn==1.4.2

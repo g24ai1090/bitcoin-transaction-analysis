@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bitcoin-ingress
+spec:
+  rules:
+  - host: bitcoin.example.com
+    http:
+      paths:
+      - path: /api/
+        pathType: Prefix
+        backend:
+          service:
+            name: transaction-analyzer
+            port:
+              number: 8000

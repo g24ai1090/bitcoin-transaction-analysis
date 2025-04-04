@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transaction-analyzer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: transaction-analyzer
+  template:
+    metadata:
+      labels:
+        app: transaction-analyzer
+    spec:
+      containers:
+      - name: transaction-analyzer
+        image: gcr.io/my-project/transaction-analyzer
+        ports:
+        - containerPort: 8000

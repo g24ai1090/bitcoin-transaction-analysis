@@ -1,0 +1,9 @@
+[
+    {"name": "transaction_id", "type": "STRING"},
+    {"name": "sender", "type": "STRING"},
+    {"name": "receiver", "type": "STRING"},
+    {"name": "amount", "type": "FLOAT"},
+    {"name": "timestamp", "type": "TIMESTAMP"},
+    {"name": "is_fraud", "type": "BOOLEAN"}
+  ]
+  
