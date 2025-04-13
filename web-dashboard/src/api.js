@@ -1,7 +1,7 @@
-const API_URL = "https://fraud-detection-api.cloud.run";
+const API_URL = "https://fraud-detection-831585962225.us-central1.run.app";
 
 export async function fetchTransactions() {
-    const response = await fetch(`${API_URL}/get-transactions`);
+    const response = await fetch(`${API_URL}/top-transactions`);
     return response.json();
 }
 

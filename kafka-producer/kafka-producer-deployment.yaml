@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: kafka-producer
-        image: gcr.io/my-project/kafka-producer
+        image: gcr.io/virtualbox-assignmnt/kafka-producer:latest
         env:
         - name: KAFKA_BOOTSTRAP_SERVERS
           value: "kafka-service:9092"

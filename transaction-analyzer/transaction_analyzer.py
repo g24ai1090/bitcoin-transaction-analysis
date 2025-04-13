@@ -8,7 +8,7 @@ client = bigquery.Client()
 def get_top_transactions():
     query = """
     SELECT sender, receiver, SUM(amount) as total_amount
-    FROM `my_project.bitcoin_analysis.transactions`
+    FROM `virtualbox-assignmnt.bitcoin_analysis.transactions`
     GROUP BY sender, receiver
     ORDER BY total_amount DESC
     LIMIT 10

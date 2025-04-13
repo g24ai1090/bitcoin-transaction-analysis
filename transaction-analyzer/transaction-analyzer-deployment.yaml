@@ -14,6 +14,17 @@ spec:
     spec:
       containers:
       - name: transaction-analyzer
-        image: gcr.io/my-project/transaction-analyzer
+        image: gcr.io/virtualbox-assignmnt/transaction-analyzer
         ports:
         - containerPort: 8000
+        volumeMounts:
+            - name: google-cloud-key
+              mountPath: /etc/google-cloud-key
+              readOnly: true
+        env:
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: "/etc/google-cloud-key/google-cloud-key.json"
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: google-cloud-key-secret

@@ -15,4 +15,4 @@ RUN npm run build
 
 # Use a simple server to serve the frontend
 RUN npm install -g serve
-CMD ["serve", "-s", "build", "-l", "3000"]
+CMD ["serve", "-s", "build", "-l", "8080"]

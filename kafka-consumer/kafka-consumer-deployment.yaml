@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: kafka-consumer
-        image: gcr.io/my-project/kafka-consumer
+        image: gcr.io/virtualbox-assignmnt/kafka-consumer:latest
         env:
         - name: KAFKA_BOOTSTRAP_SERVERS
           value: "kafka-service:9092"
         - name: BIGQUERY_DATASET
-          value: "my_project.bitcoin_analysis"
+          value: "virtualbox-assignmnt.bitcoin_analysis"
