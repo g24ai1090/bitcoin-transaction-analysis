@@ -9,6 +9,9 @@ import joblib
 df = pd.read_csv("bitcoin_transactions.csv")
 
 # Select features
+# Convert timestamp to numeric value (e.g., Unix time)
+df['time'] = pd.to_datetime(df['timestamp']).astype(int) / 10**9  # convert to seconds
+
 X = df[['amount', 'fee', 'time']]
 y = df['is_fraud']
 

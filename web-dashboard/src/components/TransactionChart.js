@@ -12,8 +12,8 @@ const TransactionChart = () => {
             {
                 label: "Transaction Amounts",
                 data: [],
-                borderColor: "blue",
-                backgroundColor: "rgba(0, 0, 255, 0.2)",
+                backgroundColor: [],
+                borderColor: [],
                 fill: true,
             },
         ],
@@ -22,8 +22,17 @@ const TransactionChart = () => {
     useEffect(() => {
         const loadTransactions = async () => {
             const transactions = await fetchTransactions();
-            const labels = transactions.map(tx => tx.transaction_id);
-            const amounts = transactions.map(tx => tx.amount);
+
+            const labels = transactions.map(
+                (tx) => `${tx.sender.slice(0, 4)}→${tx.receiver.slice(0, 4)}`
+            );
+            const amounts = transactions.map((tx) => tx.amount);
+            const colors = transactions.map((tx) =>
+                tx.is_fraud ? "rgba(255, 0, 0, 0.5)" : "rgba(0, 0, 255, 0.3)"
+            );
+            const borders = transactions.map((tx) =>
+                tx.is_fraud ? "red" : "blue"
+            );
 
             setChartData({
                 labels,
@@ -31,9 +40,11 @@ const TransactionChart = () => {
                     {
                         label: "Transaction Amounts",
                         data: amounts,
-                        borderColor: "blue",
-                        backgroundColor: "rgba(0, 0, 255, 0.2)",
+                        backgroundColor: colors,
+                        borderColor: borders,
+                        borderWidth: 1.5,
                         fill: true,
+                        tension: 0.3,
                     },
                 ],
             });
