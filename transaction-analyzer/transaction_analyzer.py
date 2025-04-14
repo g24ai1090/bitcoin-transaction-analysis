@@ -3,6 +3,11 @@ from google.cloud import bigquery
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+@app.get("/")
+def health_check():
+    return {"status": "Transaction Analyzer API is running!"}
+
 client = bigquery.Client()
 
 app.add_middleware(

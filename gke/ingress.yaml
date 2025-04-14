@@ -2,15 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: bitcoin-ingress
+  namespace: default
 spec:
+  ingressClassName: nginx
   rules:
-  - host: bitcoin.example.com
-    http:
-      paths:
-      - path: /api/
-        pathType: Prefix
-        backend:
-          service:
-            name: transaction-analyzer
-            port:
-              number: 8000
+    - host: transaction-analyzer.local
+      http:
+        paths:
+          - path: /top-transactions
+            pathType: Prefix
+            backend:
+              service:
+                name: transaction-analyzer-service
+                port:
+                  number: 80

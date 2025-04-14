@@ -18,13 +18,14 @@ spec:
         ports:
         - containerPort: 8000
         volumeMounts:
-            - name: google-cloud-key
-              mountPath: /etc/google-cloud-key
+            - name: gcp-key-volume
+              mountPath: /app/virtualbox-assignmnt-6d2f47e5141c.json
+              subPath: virtualbox-assignmnt-6d2f47e5141c.json
               readOnly: true
         env:
             - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: "/etc/google-cloud-key/google-cloud-key.json"
+              value: "/app/virtualbox-assignmnt-6d2f47e5141c.json"
       volumes:
-        - name: google-cloud-key
+        - name: gcp-key-volume
           secret:
-            secretName: google-cloud-key-secret
+            secretName: gcp-key-secret
